@@ -70,8 +70,8 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Content — padded to clear banner (28px) + navbar (56px) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32 sm:pt-36 pb-24">
+      {/* Content — banner h-8 (32px) + navbar h-14 mobile / h-20 desktop */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-[calc(32px+56px+24px)] sm:pt-[calc(32px+64px+32px)] lg:pt-[calc(32px+80px+40px)] pb-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
