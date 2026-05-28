@@ -1,26 +1,269 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 14 10 8;
+    --foreground: 245 240 235;
+    --card: 22 16 12;
+    --card-foreground: 245 240 235;
+    --border: 45 35 28;
+    --input: 30 22 18;
+    --primary: 196 142 72;
+    --primary-foreground: 14 10 8;
+    --secondary: 35 26 20;
+    --secondary-foreground: 200 185 165;
+    --muted: 30 22 18;
+    --muted-foreground: 140 120 100;
+    --accent: 196 142 72;
+    --accent-foreground: 14 10 8;
+    --destructive: 180 50 50;
+    --ring: 196 142 72;
+    --radius: 0.5rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: rgb(45 35 28);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: rgb(14 10 8);
+    color: rgb(245 240 235);
+    font-family: var(--font-geist-sans), system-ui, sans-serif;
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background-color: rgb(196 142 72 / 0.3);
+    color: rgb(245 240 235);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgb(14 10 8);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(45 35 28);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(196 142 72 / 0.5);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-display {
+    font-family: Georgia, 'Times New Roman', serif;
+    letter-spacing: -0.02em;
+  }
+
+  .text-gold {
+    color: rgb(196 142 72);
+  }
+
+  .bg-gold {
+    background-color: rgb(196 142 72);
+  }
+
+  .border-gold {
+    border-color: rgb(196 142 72);
+  }
+
+  .bg-dark {
+    background-color: rgb(14 10 8);
+  }
+
+  .bg-card-dark {
+    background-color: rgb(22 16 12);
+  }
+
+  .bg-surface {
+    background-color: rgb(30 22 18);
+  }
+
+  .text-warm {
+    color: rgb(200 185 165);
+  }
+
+  .text-muted-warm {
+    color: rgb(140 120 100);
+  }
+
+  .border-subtle {
+    border-color: rgb(45 35 28);
+  }
+
+  .shadow-warm {
+    box-shadow: 0 4px 24px rgb(0 0 0 / 0.4), 0 1px 4px rgb(196 142 72 / 0.05);
+  }
+
+  .shadow-gold {
+    box-shadow: 0 0 30px rgb(196 142 72 / 0.15);
+  }
+
+  .ring-gold {
+    --tw-ring-color: rgb(196 142 72 / 0.5);
+  }
+
+  .gradient-overlay {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgb(14 10 8 / 0.3) 40%,
+      rgb(14 10 8 / 0.85) 80%,
+      rgb(14 10 8) 100%
+    );
+  }
+
+  .gradient-hero {
+    background: linear-gradient(
+      135deg,
+      rgb(14 10 8 / 0.7) 0%,
+      rgb(14 10 8 / 0.4) 50%,
+      rgb(14 10 8 / 0.6) 100%
+    );
+  }
+
+  .divider-gold {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgb(196 142 72 / 0.4),
+      transparent
+    );
+  }
+
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgb(0 0 0 / 0.5), 0 0 20px rgb(196 142 72 / 0.1);
+  }
+
+  .btn-primary {
+    background-color: rgb(196 142 72);
+    color: rgb(14 10 8);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    padding: 0.875rem 2rem;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+  }
+
+  .btn-primary:hover {
+    background-color: rgb(220 165 90);
+    box-shadow: 0 4px 20px rgb(196 142 72 / 0.3);
+  }
+
+  .btn-outline {
+    border: 1px solid rgb(196 142 72 / 0.6);
+    color: rgb(196 142 72);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    padding: 0.875rem 2rem;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+  }
+
+  .btn-outline:hover {
+    background-color: rgb(196 142 72 / 0.1);
+    border-color: rgb(196 142 72);
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgb(196 142 72);
+  }
+
+  .section-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(1.75rem, 5vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: rgb(245 240 235);
+  }
+
+  .section-subtitle {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    color: rgb(140 120 100);
+    line-height: 1.7;
+    max-width: min(520px, 100%);
+  }
+
+  .input-dark {
+    background-color: rgb(22 16 12);
+    border: 1px solid rgb(45 35 28);
+    color: rgb(245 240 235);
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 0.9rem;
+    transition: border-color 0.2s ease;
+    outline: none;
+  }
+
+  .input-dark::placeholder {
+    color: rgb(100 85 70);
+  }
+
+  .input-dark:focus {
+    border-color: rgb(196 142 72 / 0.6);
+    box-shadow: 0 0 0 3px rgb(196 142 72 / 0.08);
+  }
+
+  .admin-label {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgb(140 120 100);
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Hide scrollbar but keep scroll functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
