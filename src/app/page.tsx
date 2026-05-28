@@ -1,5 +1,6 @@
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
+import { DeliveryBanner } from '@/components/layout/DeliveryBanner'
 import { Hero } from '@/components/sections/Hero'
 import { Bestsellers } from '@/components/sections/Bestsellers'
 import { Menu } from '@/components/sections/Menu'
@@ -10,6 +11,7 @@ import { Contact } from '@/components/sections/Contact'
 export default function HomePage() {
   return (
     <>
+      <DeliveryBanner />
       <Navbar />
       <main>
         <Hero />
