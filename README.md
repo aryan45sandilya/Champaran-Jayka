@@ -2,8 +2,6 @@
 
 > **Taste Like Home** — A full-stack restaurant website built with Next.js 15, Supabase, and Tailwind CSS.
 
-![Champaran's Jayka](https://qhidayelxwxwppfqqjdk.supabase.co/storage/v1/object/public/images/1.png)
-
 ---
 
 ## ✨ Features
